@@ -32,6 +32,22 @@
 	 <p>
 	 	<a href="../../">Back to all posts</a>
 	 </p>
+
+	 <hr>
+
+	 <div class="card-block">
+	 	<form method="POST" action="/posts/{{ $post->id }}/comments">
+	 		{{csrf_field()}}
+	 		<div class="form-group">
+	 			<textarea name="body" placeholder="Your comment goes here" class="form-control" required></textarea>
+	 		</div>
+	 		<div class="form-group">
+	 			<button type="submit" class="btn btn-primary" style="cursor: pointer;">Add Comment</button>
+	 		</div>
+	 	</form>	
+
+	 	@include ('layouts.errors')
+	 </div>
 </div>
 
 @endsection
