@@ -10,20 +10,29 @@
 
 			<div class="form-group">
 		    	<label for="name">Name:</label>
-		    	<input type="text" class="form-control" id="name" name="name">
+		    	<input type="text" class="form-control" id="name" name="name" required>
 		  	</div>
 
 			<div class="form-group">
 		    	<label for="name">Email:</label>
-		    	<input type="email" class="form-control" id="email" name="email">
+		    	<input type="email" class="form-control" id="email" name="email" required>
 		  	</div>
 
 			<div class="form-group">
 				<label for="password">Password:</label>
-				<input type="password" class="form-control" name="password" id="password">
+				<input type="password" class="form-control" name="password" id="password" required>
+			</div>
+
+			<div class="form-group">
+				<label for="password_confirmation">Password Confirmation:</label>
+				<input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required>
 			</div>
 
 			<button type="submit" class="btn btn-primary" style="cursor: pointer;">Register</button>
+
+			<br><br>
+
+			@include ('layouts.errors')
 		</form>
 	</div>
 
