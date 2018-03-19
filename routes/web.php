@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index')->name('home');
 
 Route::get('/posts/create', 'PostsController@create');
 
@@ -27,12 +27,10 @@ Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/{task}', 'TasksController@show');
 
-Route::get('/about', function() {
-	return view('about');
-});
+Route::get('/register', 'RegistrationController@create');
 
-Auth::routes();
+Route::post('/register', 'RegistrationController@store');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login', 'SessionsController@create');
 
 
