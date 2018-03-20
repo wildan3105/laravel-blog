@@ -15,8 +15,9 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Post::latest();
 
+        // TODO: clean up
+        $posts = Post::latest();
 
         // TODO: refactor
         if($month = request('month')){
@@ -28,28 +29,15 @@ class PostsController extends Controller
         }
 
         $posts = $posts->get();
-        
-        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-                    ->groupBy('year', 'month') 
-                    ->orderByRaw('min(created_at) desc')
-                    ->get()
-                    ->toArray();
 
-    	return view('posts.index', compact('posts', 'archives'));
+    	return view('posts.index', compact('posts'));
     }
 
     public function show($post)
     {
         $post = Post::find($post);
-
-        // TODO: make class method
-        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-                    ->groupBy('year', 'month') 
-                    ->orderByRaw('min(created_at) desc')
-                    ->get()
-                    ->toArray();
         
-    	return view('posts.show', compact('post', 'archives'));
+    	return view('posts.show', compact('post'));
     }
 
     public function create()
