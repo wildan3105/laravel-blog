@@ -16,19 +16,7 @@ class PostsController extends Controller
     public function index()
     {
 
-        // TODO: clean up
-        $posts = Post::latest();
-
-        // TODO: refactor
-        if($month = request('month')){
-            $posts->whereMonth('created_at', Carbon::parse($month)->month);
-        }
-
-        if($year = request('year')){
-            $posts->whereYear('created_at', $year);
-        }
-
-        $posts = $posts->get();
+        $posts = Post::filter()->get();
 
     	return view('posts.index', compact('posts'));
     }

@@ -21,17 +21,20 @@ class Post extends Model
 		$this->comments()->create(compact('body'));
 	}
 
-	// TODO: fix 
-	// public function scopeFilter($query, $filters)
-	// {
-	// 	if($month = $filters['month']){
-	// 		$query->whereMonth('created_at', Carbon::parse($month)->month);
-	// 	} 
+	public static function filter()
+	{
+		$posts = \App\Post::latest();
 
-	// 	if($year = $filters['year']){
-	// 		$query->whereYear('created_at', $year);
-	// 	}
-	// }
+		if($month = request('month')){
+			$posts->whereMonth('created_at', Carbon::parse($month)->month);
+		}
+
+		if($year = request('year')){
+			$posts->whereYear('created_at', $year);
+		}
+
+		return $posts;
+	}
 
 	public static function archives()
 	{
