@@ -8,10 +8,10 @@
 	    <link rel="icon" href="../../favicon.ico">
 
 	    <title>Blog Template for Bootstrap</title>
-	    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/">
+	    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/"> -->
 
 	    <!-- Bootstrap core CSS -->
-	    <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
 	    <!-- Custom styles for this template -->
 	    <link href="/css/blog.css" rel="stylesheet">
