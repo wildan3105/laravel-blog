@@ -20,7 +20,9 @@ class RegistrationController extends Controller
     	]);
 
 
-    	$user = User::create(request(['name', 'email', 'password']));
+        // TODO: password should be encrypted
+
+    	$user = User::create(request(['name', 'email', bcrypt('password')]));
 
     	auth()->login($user);
 
